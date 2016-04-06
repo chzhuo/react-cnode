@@ -1,0 +1,35 @@
+//居中
+@mixin center($position,$horizontal:true,$vertical:true) {
+  position: $position;
+  $h-auto:0;
+  $v-auto:0;
+  @if($horizontal){
+    left:0;right:0;
+    $h-auto:auto;
+  }
+  @if($vertical){
+    top:0;bottom: 0;
+    $v-auto:auto;
+  }
+  margin: #{$v-auto} #{$h-auto};
+}
+//设置行高和高度
+@mixin height-line-height($height) {
+  height: $height;
+  line-height: $height;
+}
+//设置frame
+@mixin size($width:auto,$height:auto){
+  width: $width;
+  height: $height;
+}
+@mixin edge($left:0,$top:0,$right:0,$bottom:0){
+  left:$left;
+  top:$top;
+  right:$right;
+  bottom: $bottom;
+}
+@mixin origin($left:0,$top:0){
+  left:$left;
+  top:$top;
+}
