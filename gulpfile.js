@@ -54,3 +54,5 @@ gulp.task("webpack",["clean"], function(callback) {
    });
 });
 gulp.task("build",["webpack"]);
+
+gulp.task("default",["webpack-dev-server"])

@@ -2,7 +2,6 @@
   "name": "react_cnode",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,8 +27,11 @@
     "webpack": "^1.12.14"
   },
   "dependencies": {
+    "humps": "^1.0.0",
     "jquery": "^2.2.2",
+    "lodash": "^4.8.2",
     "normalize.css": "^4.0.0",
+    "normalizr": "^2.0.1",
     "react": "^0.14.8",
     "react-addons-css-transition-group": "^0.14.8",
     "react-dom": "^0.14.8",

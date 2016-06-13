@@ -62,17 +62,3 @@ export const getLastTimeStr = (time, friendly) => {
         return fmtDate(new Date(time),'yyyy-MM-dd hh:mm');
     }
 }
-
-// export const getTopicTitleByPath(path){
-//     switch (path){
-//         case "/":
-//             return "all";
-//         case "/job":
-//         case "/good":
-//         case "/ask":
-//         case "/share":
-//             return path.substr(1);
-//         default:
-//             return null;
-//     }
-// }

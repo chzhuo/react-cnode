@@ -1,6 +1,39 @@
 body{
   color:#313131;
+  font-size: 12px;
 }
 p,h3,ul,li{
   margin:0;padding:0;border:0;
 }
+.component-wrap{
+  position: fixed;
+  width:100%;
+  height:100%;
+  padding-top:44px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+//.tag-top{
+//  color:#E74C3C;
+//  content:"顶置";
+//}
+//.tag-good{
+//  color:#E67E22;
+//  content:"精华";
+//}
+//.tag-ask{
+//  color:#3498DB;
+//  content:"问答";
+//}
+//.tag-job{
+//  color:#9B59B6;
+//  content:"招聘";
+//}
+//.tag-share{
+//  color:#1ABC9C;
+//  content:"分享";
+//}
+//.tag-no{
+//  color:#e7e7e7;
+//  content:"暂无";
+//}

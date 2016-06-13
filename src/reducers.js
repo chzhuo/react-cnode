@@ -2,11 +2,15 @@
  * Created by zhuo on 16/3/29.
  */
 import clone from './stateCopy'
+import {merge} from 'lodash';
 import {
     SET_SHOW_MENU,
     FETCH_TOPICS_REQUEST,
     FETCH_TOPICS_SUCCESS,
-    FETCH_TOPICS_FAILURE
+    FETCH_TOPICS_FAILURE,
+    FETCH_TOPIC_REQUEST,
+    FETCH_TOPIC_SUCCESS,
+    FETCH_TOPIC_FAILURE
 } from './actions';
 
 let isShowMenu = function (state=false,action) {
@@ -46,22 +50,22 @@ let defaultTopicTabs={
 let topicTabs = function(state=defaultTopicTabs,action){
     switch (action.type){
         case FETCH_TOPICS_REQUEST:{
-            let topicTabs = clone(state);
+            let topicTabs = merge({},state);
             topicTabs[action.topicTitle].isFetching = true;
             console.log("FETCH_TOPICS_REQUEST",topicTabs);
             return topicTabs;
         }
         case FETCH_TOPICS_SUCCESS:{
-            let topicTabs = clone(state);
+            let topicTabs = merge({},state);
             let topicTab = topicTabs[action.topicTitle];
-            topicTab.topics=topicTab.topics.concat(action.topics);
+            topicTab.topics=topicTab.topics.concat(action.data.result);
             topicTab.page++;
             topicTab.isFetching = false;
-            console.log("FETCH_TOPICS_SUCCESS",topicTabs);
+            console.log("FETCH_TOPICS_SUCCESS",action,topicTab);
             return topicTabs;
         }
         case FETCH_TOPICS_FAILURE:{
-            let topicTabs = clone(state);
+            let topicTabs = merge({},state);
             topicTabs[action.topicTitle].isFetching = false;
             return topicTabs;
         }
@@ -69,8 +73,15 @@ let topicTabs = function(state=defaultTopicTabs,action){
             return state;
     }
 }
+let entities = function(state={topics:{},authors:{}},action){
+    if(action.data && action.data.entities){
+        return merge({}, state, action.data.entities);
+    }
+    return state;
+};
 const reducers = {
     isShowMenu,
-    topicTabs
+    topicTabs,
+    entities
 };
 export default reducers;

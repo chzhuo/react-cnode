@@ -16,6 +16,7 @@ import List from "./components/List.jsx";
 import Message from "./components/Message.jsx";
 import About from "./components/About.jsx";
 import Login from "./components/Login.jsx";
+import Topic from "./components/Topic.jsx";
 import './styles/commonPage.scss';
 
 const store = createStore(
@@ -41,6 +42,7 @@ ReactDom.render(
                 <Route path="message" component={Message}/>
                 <Route path="about" component={About}/>
                 <Route path="login" component={Login}/>
+                <Route path="topic/:topicId" component={Topic}/>
             </Route>
         </Router>
     </Provider>,
